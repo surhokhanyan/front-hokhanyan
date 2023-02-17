@@ -1,0 +1,192 @@
+@import "../../Mixins/Mixins";
+
+nav{
+    width: 100%;
+    height: 57.5px;
+    border-top: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
+    @include flexCenter();
+    @media screen and (max-width: 1160px){
+        display: none;
+    }
+    .ul{
+        width: 554px;
+        height: 100%;
+        @include flexBetween();
+        .listItem{
+            min-width: 10px;
+            height: 100%;
+            @include flexCenter();
+            a{
+                width: 100%;
+                height: 100%;
+                @include flexCenter();
+                text-decoration: none;
+                gap: 5px;
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
+                font-size: 1rem;
+                color: #000000;
+                position: relative;
+                &:hover .subMenu{
+                    display: flex;
+                }
+                .subMenu{
+                    position: absolute;
+                    width: 176px;
+                    min-height: 20px;
+                    @include flDownEnd();
+                    gap: 8px;
+                    justify-content: flex-start;
+                    padding: 1.25rem;
+                    background: #FFFFFF;
+                    border: 1px solid #E9E9E9;
+                    z-index: 999;
+                    top: 55px;
+                    left: 0;
+                    display: none;
+                    li{
+                        width: 136px;
+                        height: 22px;
+                        @include flexBetween();
+                        align-items: flex-start;
+                        font-family: 'Roboto', sans-serif;
+                        font-style: normal;
+                        color: #000000;
+                        font-size: 0.813rem;
+                        border-bottom: 1px solid #E9E9E9;
+                        transition: all .3s ease-in;
+                        &:last-child{
+                            border: none;
+                        }
+                        &:hover{
+                            padding-left: 0.5rem;
+                            color: #969696;
+                        }
+                        svg{
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.forMenu{
+    width: 30px;
+    height: 30px;
+    @include flexCenter();
+    display: none;
+    @media screen and (max-width: 1160px){
+        display: flex;
+    }
+    svg{
+        width: 23px;
+        height: 23px;
+        cursor: pointer;
+    }
+    nav{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.6);
+        position: absolute;
+        top: 0;
+        left: 0;
+        .burgerUl{
+            width: 320px;
+            height: 100vh;
+            background-color: #F2F2F2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: fixed;
+            overflow-y: auto;
+            .logoClose{
+                width: 100%;
+                height: 81.5px;
+                border-bottom: 1px solid #E9E9E9;
+                @include flexCenter();
+                gap: 100.72px;
+                margin-bottom: 2.094rem;
+                .logo{
+                    width: 161.28px;
+                    height: 24px;
+                    @include flexCenter();
+                    text-decoration: none;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+                svg{
+                    width: 18.36px;
+                    height: 18.36px;
+                    color: black;
+                }
+            }
+            .burgerList{
+                width: 279px;
+                min-height: 39px;
+                @include flDownCenter();
+                border-bottom: 1px solid #E9E9E9;
+                color: #000000;
+                margin-bottom: 1rem;
+                &:last-child{
+                    border: none;
+                }
+                a{
+                    width: 100%;
+                    height: 39px;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: 5px;
+                    text-decoration: none;
+                    color: inherit;
+                    font-family: 'Roboto', sans-serif;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 1rem;
+                }
+                .burgerSub{
+                    width: 100%;
+                    min-height: 39px;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 5px;
+                    margin-bottom: 0.5rem;
+                    display: none;
+                    li{
+                        width: 80%;
+                        height: 39px;
+                        list-style: none;
+                        @include flexCenter();
+                        justify-content: flex-start;
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 0.875rem;
+                        font-style: normal;
+                        font-weight: 400;
+                        color: black;
+                        cursor: pointer;
+                        border-bottom: 1px solid #E9E9E9;
+                        &:last-child{
+                            border: none;
+                        }
+                        svg{
+                            width: 16px;
+                            height: 16px;
+                            color: black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
