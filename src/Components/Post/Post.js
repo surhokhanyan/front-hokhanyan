@@ -1,26 +1,21 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import css from "./Post.module.scss";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchData} from "../../Store/dataSlice";
+import {useSelector} from "react-redux";
 import CircleIcon from '@mui/icons-material/Circle';
 
 const Post = () => {
 
-    const dispatch = useDispatch();
+    const posts = useSelector(state => state.posts.posts);
 
-    useEffect(()=>{
-        dispatch(fetchData())
-    }, [dispatch])
+    console.log(posts)
 
-    const data = useSelector(state => state.data.data);
-
-    const searchData = useSelector(state => state.data.search);
+    const searchPosts = useSelector(state => state.posts.search);
 
     return (
         <div className={css.posts}>
             {
-                searchData === "" ?
-                data.map(({id, category, title, user, date, views, content, img, imgSet })=>{
+                searchPosts === "" ?
+                posts.map(({id, category, title, user, date, views, content, img, imgSet })=>{
                     return(
                         <div
                             key={id}
@@ -45,7 +40,7 @@ const Post = () => {
                         </div>
                     )
                 }) :
-                    data.filter(item => item.title.includes(searchData) || item.content.includes(searchData)).map(({id, category, title, user, date, views, content, img, imgSet })=>{
+                    posts.filter(item => item.title.includes(searchPosts) || item.content.includes(searchPosts)).map(({id, category, title, user, date, views, content, img, imgSet })=>{
                         return(
                             <div
                                 key={id}

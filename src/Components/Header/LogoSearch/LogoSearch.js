@@ -4,8 +4,8 @@ import logo from "../../../Images/Logo/Logo.png"
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {searchData} from "../../../Store/dataSlice";
 import {DEMOS} from "../../../Utils/urls";
+import {searchPosts} from "../../../Store/postsSlice";
 
 const LogoSearch = () => {
 
@@ -18,7 +18,7 @@ const LogoSearch = () => {
     }
 
     const handleChange = (e)=>{
-        dispatch(searchData(e.target.value));
+        dispatch(searchPosts(e.target.value));
     }
 
     return (

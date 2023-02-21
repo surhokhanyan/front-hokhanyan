@@ -1,8 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit";
-import dataSlice from "./dataSlice";
+import postsSlice from "./postsSlice";
 
 export default configureStore({
     reducer:{
-        data: dataSlice
+        posts: postsSlice
     }
 })
